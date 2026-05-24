@@ -1,0 +1,57 @@
+table dim_product
+	lineageTag: 12f54590-dd3c-48cc-aa71-071bd6bf4af9
+	sourceLineageTag: [dbo].[dim_product]
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 439c55b6-4f3e-4f4f-bf90-8427574f9ae7
+		sourceLineageTag: product_id
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 87771e64-c81b-4257-b12d-b69fec103376
+		sourceLineageTag: product_name
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 4fea1b16-e8f2-43f0-9b27-1910f20e5ae0
+		sourceLineageTag: category
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: decimal(10, 2)
+		lineageTag: d2665e68-6e7a-476e-8979-59ca30804b98
+		sourceLineageTag: unit_price
+		summarizeBy: none
+		sourceColumn: unit_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition dim_product = entity
+		mode: directLake
+		source
+			entityName: dim_product
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

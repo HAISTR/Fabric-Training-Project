@@ -1,0 +1,21 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "8e8bcace-01fe-432d-9695-de66291207a0",
+        "clusterUri": "https://trd-rugwpwygsj0z5vkhct.z3.kusto.fabric.microsoft.com",
+        "type": "Fabric",
+        "databaseItemId": "FabricTraining_KQL"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "f5a33e42-dc6d-4722-9b07-d0eb2c63741e",
+        "content": "//***********************************************************************************************************\n// Here are two articles to help you get started with KQL:\n// KQL reference guide - https://aka.ms/KQLguide\n// SQL - KQL conversions - https://aka.ms/sqlcheatsheet\n//***********************************************************************************************************\n\n// Use \"take\" to view a sample number of records in the table and check the data.\nYOUR_TABLE_HERE\n| take 100\n\n// See how many records are in the table.\nYOUR_TABLE_HERE\n| count\n\n// This query returns the number of ingestions per hour in the given table.\nYOUR_TABLE_HERE\n| summarize IngestionCount = count() by bin(ingestion_time(), 1h)\n\n",
+        "title": "Tab",
+        "dataSourceId": "8e8bcace-01fe-432d-9695-de66291207a0"
+      }
+    ]
+  }
+}

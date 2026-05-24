@@ -1,0 +1,39 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "729675c0-aab5-4f54-8563-d95ca28d1853",
+        "clusterUri": "https://trd-rugwpwygsj0z5vkhct.z3.kusto.fabric.microsoft.com",
+        "type": "Fabric",
+        "databaseItemId": "FabricTraining_KQL"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "9d2b1fc7-d24c-4349-bed9-30df51a29f74",
+        "content": "",
+        "title": "Tab",
+        "dataSourceId": "729675c0-aab5-4f54-8563-d95ca28d1853"
+      },
+      {
+        "id": "8eef8b68-5dfd-48d3-9211-c7fea192c087",
+        "content": "Bicycle\n| where ingestion_time() > ago(10m)\n| count",
+        "title": "",
+        "dataSourceId": "729675c0-aab5-4f54-8563-d95ca28d1853"
+      },
+      {
+        "id": "280fb1c6-3ebc-416b-9e87-927a528e2129",
+        "content": "Bicycle\n| summarize EventCount = count() by bin(ingestion_time(), 1m), Street",
+        "title": "",
+        "dataSourceId": "729675c0-aab5-4f54-8563-d95ca28d1853"
+      },
+      {
+        "id": "8320d1b1-3b2f-4210-9786-df0d761a887f",
+        "content": "Bicycle\n| where ingestion_time() > ago(1h)\n| summarize TotalEvents = count() by Street\n| top 5 by TotalEvents",
+        "title": "",
+        "dataSourceId": "729675c0-aab5-4f54-8563-d95ca28d1853"
+      }
+    ]
+  }
+}
